@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace candrea_anamaria_lab2
+namespace candrea_anamaria_lab2.Models
 {
     public class Publisher
     {
@@ -18,4 +18,5 @@ namespace candrea_anamaria_lab2
         public ICollection<PublishedBook> PublishedBooks { get; set; }
 
     }
+
 }

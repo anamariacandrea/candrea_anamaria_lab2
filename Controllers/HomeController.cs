@@ -20,17 +20,7 @@ namespace candrea_anamaria_lab2.Controllers
         {
             _context = context;
         }
-        public async Task<ActionResult> Statistics()
-        {
-            IQueryable<OrderGroup> data = from order in _context.Orders
-                                          group order by order.OrderDate into dateGroup
-                                          select new OrderGroup()
-                                          {
-                                              OrderDate = dateGroup.Key,
-                                              BookCount = dateGroup.Count()
-                                          };
-            return View(await data.AsNoTracking().ToListAsync());
-        }
+        
 
         private readonly ILogger<HomeController> _logger;
 
@@ -54,5 +44,17 @@ namespace candrea_anamaria_lab2.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public async Task<ActionResult> Statistics()
+        {
+            IQueryable<OrderGroup> data = from order in _context.Orders
+                                          group order by order.OrderDate into dateGroup
+                                          select new OrderGroup()
+                                          {
+                                              OrderDate = dateGroup.Key,
+                                              BookCount = dateGroup.Count()
+                                          };
+            return View(await data.AsNoTracking().ToListAsync());
+        }
     }
+   
 }

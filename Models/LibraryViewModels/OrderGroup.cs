@@ -10,5 +10,7 @@ namespace candrea_anamaria_lab2.Models.LibraryViewModels
         [DataType(DataType.Date)]
         public DateTime? OrderDate { get; set; }
         public int BookCount { get; set; }
+
     }
+
 }
